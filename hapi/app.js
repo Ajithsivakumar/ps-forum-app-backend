@@ -54,6 +54,12 @@ server.route({
     path: '/list',
     handler: function(request, reply) {
         console.log("hello");
+        var qu='SELECT * FROM comments';
+      con.query(qu,function(err,rows,fie){
+          if(err) console.log(err);
+          console.log(rows);
+          return reply(rows);
+      })
     }
 });
 server.start((err) => {
